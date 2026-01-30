@@ -1,6 +1,6 @@
 # Predicción de Parto Pretérmino mediante Aprendizaje Automático
 
-# 📘 Repositorio de Trabajo de Tesis – Física (Ciencia de Datos)
+## 📘 Repositorio de Trabajo de Tesis – Física (Ciencia de Datos)
 
 Este repositorio constituye un espacio de trabajo académico que contiene los análisis computacionales, procesamiento de datos y modelos predictivos desarrollados como parte de una tesis de licenciatura en Física con orientación en Ciencia de Datos.
 
