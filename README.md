@@ -73,4 +73,4 @@ El archivo `requirements.txt` incluido contiene las dependencias completas del e
 
 Este repositorio respalda técnicamente los resultados de la tesis y busca asegurar la reproducibilidad, trazabilidad y transparencia del análisis computacional realizado.
 
-Este repositorio respalda técnicamente los resultados de la tesis y busca asegurar la reproducibilidad, trazabilidad y transparencia del análisis computacional realizado.
+-Francisco Emiliano Jiménez Zamora
