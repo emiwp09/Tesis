@@ -6,11 +6,14 @@
 - La unidad de evaluación es la paciente. Los modelos que predicen por muestra
   (regresión logística y Random Forest) promedian la probabilidad de las
   muestras de cada paciente.
+- Umbral de decisión (corrección iii): índice de Youden calculado sin usar el
+  pliegue de prueba (umbral_interno para A1 y A2; validación para A3).
 """
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
+from sklearn.model_selection import StratifiedGroupKFold
 from sklearn.metrics import (roc_auc_score, average_precision_score, roc_curve,
                              accuracy_score, precision_score, recall_score, f1_score)
 
@@ -57,16 +60,37 @@ def promedio_por_paciente(participant_id, y, prob):
     return df.groupby('participant_id').agg(y=('y', 'first'), prob=('prob', 'mean')).reset_index()
 
 
-def umbral_sens_igual_espec(y, prob):
-    """Regla de umbral de la versión original (Listado A.3): punto de la curva ROC
-    donde la sensibilidad es igual a la especificidad, TPR - (1 - FPR) ~ 0.
+def umbral_youden(y, prob):
+    """Umbral de Youden: el punto de la curva ROC que maximiza TPR - FPR.
 
-    Se aplica igual a los tres modelos para que las métricas que dependen del
-    umbral sean comparables. NOTA: se calcula sobre el pliegue de prueba, como en
-    la versión original; esto se corrige en el punto iii.
+    Se calcula SOLO con datos que no son de prueba (validación o predicciones
+    fuera de pliegue dentro del entrenamiento). El umbral obtenido se congela y
+    se aplica una sola vez al pliegue de prueba.
     """
     fpr, tpr, thr = roc_curve(y, prob)
-    return thr[np.argmin(np.abs(tpr - (1 - fpr)))]
+    thr = np.minimum(thr, 1.0)          # roc_curve pone +inf en el primer punto
+    return float(thr[np.argmax(tpr - fpr)])
+
+
+def umbral_interno(ajustar_predecir, X, y, pacientes, semilla, n_pliegues=3):
+    """Umbral de Youden con una validación cruzada interna por paciente.
+
+    Para los modelos que predicen por muestra (regresión logística y Random
+    Forest). Dentro de las pacientes de ENTRENAMIENTO de un pliegue externo se
+    hace una validación cruzada de n_pliegues, agrupada por paciente: cada
+    paciente de entrenamiento recibe una probabilidad de un modelo que no la vio.
+    Las probabilidades se promedian por paciente y con ellas se calcula el umbral
+    de Youden. El pliegue de prueba no interviene.
+
+    ajustar_predecir(X_tr, y_tr, X_va) -> probabilidades de la clase 1 para X_va.
+    """
+    interna = StratifiedGroupKFold(n_splits=n_pliegues, shuffle=True, random_state=semilla)
+    prob = np.full(len(y), np.nan)
+    for i_tr, i_va in interna.split(X, y, groups=pacientes):
+        prob[i_va] = ajustar_predecir(X[i_tr], y[i_tr], X[i_va])
+    assert not np.isnan(prob).any()
+    pp = promedio_por_paciente(pacientes, y, prob)
+    return umbral_youden(pp.y, pp.prob)
 
 
 def metricas(y, prob, umbral):
