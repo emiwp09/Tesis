@@ -1,7 +1,8 @@
 # Correcciones: punto i (modelos comparables)
 
-Esta carpeta va **dentro de la carpeta del repositorio**, junto a `CSVTESIS/`
-(los códigos leen los datos de `../CSVTESIS/`, incluidos los .zip de taxonomía y filotipos).
+Los códigos buscan los datos primero **en esta misma carpeta** y, si no están, en `../CSVTESIS/`.
+Basta con poner aquí estos 4 CSV (sirven igual en .csv o en el .zip del repositorio):
+`metadata.csv`, `cst_valencia_w_taxons.csv`, `taxonomy_relabd.species.csv`, `phylotype_nreads.1e_1.csv`.
 
 Orden para correr (abriendo Jupyter o la terminal **dentro de `Correcciones/`**):
 

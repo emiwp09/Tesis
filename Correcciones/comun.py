@@ -15,15 +15,24 @@ from sklearn.metrics import (roc_auc_score, average_precision_score, roc_curve,
                              accuracy_score, precision_score, recall_score, f1_score)
 
 CORRECCIONES = Path(__file__).resolve().parent
-# Los datos se buscan en ../CSVTESIS (estructura del repositorio) o, si no existe,
-# en la misma carpeta que este archivo.
-DATOS = CORRECCIONES.parent / 'CSVTESIS'
+# Los datos (CSV) se buscan primero en la misma carpeta que este archivo y, si no
+# están ahí, en ../CSVTESIS (estructura del repositorio).
+DATOS = CORRECCIONES
 if not (DATOS / 'metadata.csv').exists():
-    DATOS = CORRECCIONES
+    DATOS = CORRECCIONES.parent / 'CSVTESIS'
 RESULTADOS = CORRECCIONES / 'resultados'
 ARCHIVO_PLIEGUES = CORRECCIONES / 'pliegues_por_paciente.csv'
 
 ETIQUETA = 'was_preterm'
+
+
+def leer_datos(nombre):
+    """Lee nombre.csv de la carpeta de datos; si no existe, nombre.zip (como en el repositorio)."""
+    for ext in ('.csv', '.zip'):
+        ruta = DATOS / (nombre + ext)
+        if ruta.exists():
+            return pd.read_csv(ruta)
+    raise FileNotFoundError(f'No encuentro {nombre}.csv ni {nombre}.zip en {DATOS}')
 
 
 def cargar_pliegues():
