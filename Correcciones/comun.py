@@ -14,9 +14,12 @@ import pandas as pd
 from sklearn.metrics import (roc_auc_score, average_precision_score, roc_curve,
                              accuracy_score, precision_score, recall_score, f1_score)
 
-RAIZ = Path(__file__).resolve().parent.parent
-DATOS = RAIZ / 'CSVTESIS'
-CORRECCIONES = RAIZ / 'Correcciones'
+CORRECCIONES = Path(__file__).resolve().parent
+# Los datos se buscan en ../CSVTESIS (estructura del repositorio) o, si no existe,
+# en la misma carpeta que este archivo.
+DATOS = CORRECCIONES.parent / 'CSVTESIS'
+if not (DATOS / 'metadata.csv').exists():
+    DATOS = CORRECCIONES
 RESULTADOS = CORRECCIONES / 'resultados'
 ARCHIVO_PLIEGUES = CORRECCIONES / 'pliegues_por_paciente.csv'
 
