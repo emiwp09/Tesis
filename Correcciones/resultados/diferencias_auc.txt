@@ -1,3 +1,3 @@
-AUC-ROC Random Forest - CNN-LSTM: +0.100 ± 0.057; Random Forest mejor en 24/25 pliegues
+AUC-ROC Random Forest - CNN-LSTM: +0.100 ± 0.044; Random Forest mejor en 25/25 pliegues
 AUC-ROC Random Forest - Regresión logística: +0.232 ± 0.063; Random Forest mejor en 25/25 pliegues
-AUC-ROC CNN-LSTM - Regresión logística: +0.133 ± 0.069; CNN-LSTM mejor en 25/25 pliegues
+AUC-ROC CNN-LSTM - Regresión logística: +0.132 ± 0.055; CNN-LSTM mejor en 25/25 pliegues
