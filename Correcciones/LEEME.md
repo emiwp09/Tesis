@@ -10,8 +10,11 @@ Orden para correr (abriendo Jupyter o la terminal **dentro de `Correcciones/`**)
 2. `A1_RegresionLogistica_corregido.ipynb`
 3. `A2_RandomForest_corregido.ipynb` (al final, punto v: Random Forest con la abundancia media por paciente → `metricas_A2_media.csv`, `pred_A2_media.csv`)
 4. `C2_RF_robustez.ipynb` (necesita los resultados de A2: matriz de confusión del RF y chequeo de regularización)
-5. `A3_Red_Hibrida_CNN-LSTM_corregido.ipynb` (25 entrenamientos de hasta 500 épocas con EarlyStopping; en CPU ~75 min o menos.
-   Para Google Colab, ver la primera celda del notebook)
+5. `A3_Red_Hibrida_CNN-LSTM_corregido.ipynb` (4 variantes x 25 pliegues = 100 entrenamientos de hasta 500 épocas con
+   EarlyStopping; en CPU, unas 4 veces lo que tarda el modelo completo solo (~75 min). Para Google Colab, ver la primera celda).
+   Al final, punto v: sección de análisis que no entrena (IC del AUC, comparaciones pareadas, control de tiempo de
+   muestreo y subcohorte con >= 3 muestras) → `resultados/v_*.csv`, `AUC_pliegues_v.png` y `CurvaROC_A3_paciente.png`.
+   Necesita que A2 ya se haya corrido (`pred_A2.csv` y `pred_A2_media.csv`).
 6. `python C1_tabla_4_1.py` → `resultados/tabla_4_1.csv`, `tabla_4_1.tex` y `diferencias_auc.txt`.
 
 Cada notebook guarda en `resultados/` sus métricas por pliegue (`metricas_A*.csv`) y las probabilidades por paciente (`pred_A*.csv`).
