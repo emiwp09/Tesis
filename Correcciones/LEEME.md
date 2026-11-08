@@ -8,7 +8,7 @@ Orden para correr (abriendo Jupyter o la terminal **dentro de `Correcciones/`**)
 
 1. `python C0_pliegues_por_paciente.py` → crea `pliegues_por_paciente.csv` (ya viene incluido; correrlo de nuevo da el mismo archivo).
 2. `A1_RegresionLogistica_corregido.ipynb`
-3. `A2_RandomForest_corregido.ipynb`
+3. `A2_RandomForest_corregido.ipynb` (al final, punto v: Random Forest con la abundancia media por paciente → `metricas_A2_media.csv`, `pred_A2_media.csv`)
 4. `C2_RF_robustez.ipynb` (necesita los resultados de A2: matriz de confusión del RF y chequeo de regularización)
 5. `A3_Red_Hibrida_CNN-LSTM_corregido.ipynb` (25 entrenamientos de hasta 500 épocas con EarlyStopping; en CPU ~75 min o menos.
    Para Google Colab, ver la primera celda del notebook)
