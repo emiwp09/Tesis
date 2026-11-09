@@ -43,6 +43,18 @@ Esta nomenclatura corresponde a la forma en que los modelos fueron referenciados
 
 ---
 
+### Correcciones_Tesis
+Versión corregida de los modelos, tras la revisión de la tesis. Los notebooks originales de la carpeta 3.5 se conservan sin cambios como referencia.
+
+Principales correcciones:
+
+- Los tres modelos usan la misma etiqueta (`was_preterm`) y se evalúan por paciente, con los mismos 25 pliegues (5 pliegues × 5 repeticiones).
+- Ninguna paciente aparece a la vez en entrenamiento y prueba.
+- El umbral de decisión se elige solo con datos de entrenamiento (índice de Youden), nunca con los de prueba.
+- Se agregan controles e intervalos de confianza para sustentar las conclusiones sobre no linealidad y dinámica temporal.
+
+Las instrucciones para correrlos están en `Correcciones_Tesis/LEEME.md`, y los resultados usados en la tesis en `Correcciones_Tesis/resultados/`.
+
 ## Formato de los Archivos
 
 Todos los análisis se presentan en formato **Jupyter Notebook (.ipynb)**, lo que permite integrar código, resultados numéricos y visualizaciones en un solo documento.
