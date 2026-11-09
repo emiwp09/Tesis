@@ -1,0 +1,8 @@
+AUC-ROC Random Forest - CNN-LSTM: +0.110 ± 0.043; Random Forest mejor en 25/25 pliegues; p = 0.000
+AUC-ROC Random Forest - Regresión logística (microbioma): +0.057 ± 0.039; Random Forest mejor en 23/25 pliegues; p = 0.012
+AUC-ROC Regresión logística (microbioma) - Regresión logística (raza): +0.200 ± 0.054; Regresión logística (microbioma) mejor en 25/25 pliegues; p = 0.000
+AUC-ROC Random Forest - Regresión logística (raza): +0.257 ± 0.052; Random Forest mejor en 25/25 pliegues; p = 0.000
+AUC-ROC CNN-LSTM - Regresión logística (raza): +0.146 ± 0.052; CNN-LSTM mejor en 25/25 pliegues; p = 0.000
+AUC-ROC Boosting profundidad 3 (con interacciones) - Boosting profundidad 1 (sin interacciones): +0.018 ± 0.021; Boosting profundidad 3 (con interacciones) mejor en 20/25 pliegues; p = 0.118
+AUC-ROC Random Forest - Boosting profundidad 1 (sin interacciones): +0.042 ± 0.039; Random Forest mejor en 22/25 pliegues; p = 0.060
+AUC-ROC Boosting profundidad 1 (sin interacciones) - Regresión logística (microbioma): +0.015 ± 0.041; Boosting profundidad 1 (sin interacciones) mejor en 18/25 pliegues; p = 0.494

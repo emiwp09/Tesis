@@ -1,0 +1,7 @@
+,auc_roc,auc_roc,auc_pr,auc_pr,accuracy,accuracy,precision,precision,recall,recall,f1,f1
+,mean,std,mean,std,mean,std,mean,std,mean,std,mean,std
+modelo,,,,,,,,,,,,
+Regresión logística (raza),0.523,0.037,0.463,0.029,0.574,0.036,0.543,0.086,0.206,0.107,0.285,0.078
+Regresión logística (microbioma),0.723,0.043,0.723,0.047,0.691,0.028,0.706,0.07,0.515,0.096,0.587,0.057
+Random Forest,0.78,0.038,0.774,0.041,0.716,0.042,0.716,0.09,0.611,0.104,0.648,0.058
+CNN-LSTM,0.669,0.033,0.629,0.041,0.622,0.051,0.564,0.057,0.642,0.115,0.593,0.055
