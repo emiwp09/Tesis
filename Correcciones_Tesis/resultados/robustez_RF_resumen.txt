@@ -1,0 +1,25 @@
+1) Matriz de confusión por paciente, repetición 0 (616 pacientes, cada una una vez)
+   VN=263  FP=86  FN=96  VP=171
+   precisión=0.665  recall=0.640  especificidad=0.754  exactitud=0.705
+
+2a) AUC-ROC por paciente de cada configuración (25 pliegues, media y desv. est.)
+max_depth  min_samples_leaf  mean   std
+       10                 1 0.743 0.031
+       10                 5 0.741 0.033
+       10                10 0.738 0.033
+        5                 1 0.728 0.037
+        5                 5 0.727 0.038
+        5                10 0.725 0.037
+     None                 1 0.780 0.038
+     None                 5 0.748 0.038
+     None                10 0.743 0.035
+   Rango de medias: 0.725 a 0.780
+
+2b) Validación anidada (configuración elegida dentro del entrenamiento)
+   AUC-ROC externo: 0.775 ± 0.033
+   Modelo de la Tabla 4.1 (max_depth=None, min_samples_leaf=1): 0.780 ± 0.038
+   Configuraciones elegidas:
+max_depth  min_samples_leaf  veces
+     None                 1     23
+     None                 5      1
+     None                10      1

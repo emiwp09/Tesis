@@ -1,0 +1,8 @@
+modelo,auc,ic_boot_inf,ic_boot_sup,ic_hm_inf,ic_hm_sup,auc_pliegues_media,auc_pliegues_de,pliegues_auc_>0.5,pliegues_auc_>0.7
+CNN-LSTM,0.661,0.618,0.704,0.617,0.705,0.669,0.033,25,4
+CNN-LSTM (barajada),0.668,0.624,0.711,0.625,0.712,0.675,0.043,25,6
+CNN-LSTM (ultima_muestra),0.627,0.583,0.671,0.583,0.672,0.634,0.051,25,2
+CNN-LSTM (horizonte28),0.597,0.549,0.645,0.548,0.646,0.6,0.054,25,0
+Random Forest,0.778,0.74,0.814,0.74,0.816,0.78,0.037,25,25
+Random Forest (media por paciente),0.773,0.734,0.811,0.735,0.811,0.776,0.045,25,25
+Control: n.º de muestras y última semana,0.557,0.512,0.602,0.511,0.603,0.567,0.042,24,0

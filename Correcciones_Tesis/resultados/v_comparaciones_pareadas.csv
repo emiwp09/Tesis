@@ -1,0 +1,7 @@
+comparacion,pliegues,dif_media,ic_inf,ic_sup,p_valor,gana_a,gana_b
+CNN-LSTM  -  CNN-LSTM (barajada),25,-0.006,-0.055,0.044,0.814,8,17
+CNN-LSTM  -  CNN-LSTM (ultima_muestra),25,0.035,-0.023,0.092,0.222,18,7
+CNN-LSTM  -  CNN-LSTM (horizonte28),25,0.069,0.008,0.13,0.027,22,3
+CNN-LSTM  -  Random Forest,25,-0.111,-0.159,-0.062,0.0,0,25
+CNN-LSTM  -  Random Forest (media por paciente),25,-0.106,-0.168,-0.045,0.002,0,25
+CNN-LSTM  -  Control: n.º de muestras y última semana,25,0.102,0.058,0.146,0.0,25,0

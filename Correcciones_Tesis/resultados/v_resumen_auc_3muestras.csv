@@ -1,0 +1,8 @@
+modelo,mean,std,count
+CNN-LSTM,0.59,0.064,25
+CNN-LSTM (barajada),0.59,0.092,25
+CNN-LSTM (ultima_muestra),0.552,0.08,25
+CNN-LSTM (horizonte28),0.535,0.086,25
+Random Forest,0.738,0.095,25
+Random Forest (media por paciente),0.737,0.094,25
+Control: n.º de muestras y última semana,0.675,0.068,25
